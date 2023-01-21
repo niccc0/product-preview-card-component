@@ -1,0 +1,128 @@
+:root {
+    --clr-primary-700: hsl(158, 36%, 37%);
+    --clr-primary-900: hsl(158, 36%, 22%);
+    --clr-primary-300: hsl(30, 38%, 92%);
+
+    --clr-neutral-900: hsl(212, 21%, 14%);
+    --clr-neutral-500: hsl(228, 12%, 48%);
+    --clr-neutral-100: hsl(0, 0%, 100%);
+
+    --ff-accent: 'Fraunces', serif;
+    --ff-primary: 'Montserrat', sans-serif;
+
+    --fw-bold: 700;
+    --fw-normal: 500;
+
+}
+
+body {
+    font-family: var(--ff-primary);
+    background-color: var(--clr-primary-300);
+    font-weight: var(--fw-normal);
+    font-size: 0.875rem;
+
+    display: grid;
+    place-items: center;
+    margin: 1rem;
+
+    color: var(--clr-neutral-500);
+
+}
+/* product */
+.product {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    background-color: var(--clr-neutral-100);
+
+    display: grid;
+    max-width: 600px;
+
+    --content-padding: 2rem;
+    --content-spacing: 1rem;
+}
+
+@media (min-width: 600px) {
+    .product {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+/* image */
+.product__img {
+    display: block;
+}
+.product__img img{ 
+    height: 100%;
+    object-fit: cover;
+}
+/* content */
+.product__content {
+    padding: var(--content-padding);
+    display: grid;
+    gap: var(--content-spacing);
+}
+
+.product__suptitle {
+    color: var(--clr-neutral-500);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.product__title {
+    font-family: var(--ff-accent);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--clr-neutral-900);
+}
+
+
+/* flex-group */
+.flex-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+/* prices */
+.product__price {
+    color: var(--clr-primary-700);
+    font-weight: var(--fw-bold);
+    font-size: 2.2rem;
+    font-family: var(--ff-accent);
+}
+
+.product__original-price {
+    color: var(--clr-neutral-500);
+    text-decoration: line-through;
+}
+
+/* button */
+.button {
+    background-color: var(--clr-primary-700);
+    color: var(--clr-neutral-100);
+    outline: none;
+    border: 0;
+    border-radius: 0.5rem;
+    font-weight: var(--fw-bold);
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+
+    padding: .75rem 1rem;
+    transition: background-color 200ms;
+
+}
+
+.button:is(:hover, :focus) {
+    background-color: var(--clr-primary-900);
+}
+
+.button[data-icon="shopping-cart"]::before {
+    content: '';
+    background: url(images/icon-cart.svg) no-repeat;
+    height: 16px;
+    width: 15px;
+}
